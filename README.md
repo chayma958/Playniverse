@@ -1,4 +1,4 @@
-# 🌈 Playniverse
+# 🚀 Playniverse
 
 **Playniverse** is an interactive educational platform offering a universe of fun learning experiences for kids.  
 It includes **engaging mini-games** all designed to teach and entertain in a colorful, safe, and playful environment.
@@ -25,13 +25,13 @@ You can try **Playniverse** online here:
   Play-based education that promotes curiosity, memory, and problem-solving.
 
 - 🎨 **Kid-Friendly Design**
-  Soft colors, rounded shapes, and cheerful visuals suitable for children.
+  Cheerful colors, rounded shapes, and fun visuals suitable for children.
 
 - 🔊 **Sound & Music**
   Fun sound effects and positive audio feedback for better engagement.
 
 - 💻 **Responsive Design**
-  Works seamlessly across desktop, tablet, and mobile devices.
+  Works seamlessly across desktop and tablet devices.
 
 ---
 
