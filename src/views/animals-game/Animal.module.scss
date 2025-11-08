@@ -1,0 +1,278 @@
+.animalImg {
+  position: relative;
+  height: auto;
+  width: 25vw;
+  max-width: 400px;
+  z-index: 5;
+  top: 100px;
+
+  @media (max-width: 900px) {
+    width: 28vw;
+  }
+
+  @media (max-width: 600px) {
+    width: 25vw;
+    top: 60px
+  }
+}
+
+.birdAnimateHappy {
+  top: 0;
+  left: 70px;
+  animation: birdFly 6s ease-in-out infinite;
+}
+
+@keyframes birdFlap {
+
+  0%,
+  100% {
+    content: url("assets/animals-game/bird_happy1.png");
+  }
+
+  50% {
+    content: url("assets/animals-game/bird_happy2.png");
+  }
+}
+
+@keyframes birdFly {
+  0% {
+    transform: translateX(0);
+    content: url("assets/animals-game/bird_happy1.png");
+  }
+
+  10% {
+    content: url("assets/animals-game/bird_happy2.png");
+  }
+
+  20% {
+    content: url("assets/animals-game/bird_happy1.png");
+  }
+
+  30% {
+    content: url("assets/animals-game/bird_happy2.png");
+  }
+
+  50% {
+    transform: translateX(-300px);
+    content: url("assets/animals-game/bird_happy1.png");
+  }
+
+  70% {
+    content: url("assets/animals-game/bird_happy2.png");
+  }
+
+  100% {
+    transform: translateX(0) translateY(0);
+    content: url("assets/animals-game/bird_happy1.png");
+  }
+}
+
+.birdAnimateSad {
+  top: 0;
+  animation: birdSuffocate 2.5s ease-in-out forwards;
+}
+
+@keyframes birdSuffocate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  30% {
+    transform: translateY(10px) rotate(-3deg);
+  }
+
+  60% {
+    transform: translateY(25px) rotate(3deg);
+  }
+
+  80% {
+    transform: translateY(40px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translateY(60px) rotate(5deg);
+  }
+}
+
+@keyframes happyBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes sadShake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-6px);
+  }
+
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+@media (max-width: 600px) {
+  .animalImg {
+    width: 8rem;
+  }
+}
+
+.lionAnimateSad {
+  animation: lionFreeze 0.25s linear infinite;
+}
+
+@keyframes lionFreeze {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  20% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+
+  40% {
+    transform: translateX(3px) rotate(1deg);
+  }
+
+  60% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translateX(2px) rotate(1deg);
+  }
+
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.lionAnimateHappy {
+  animation: happyBounce 0.8s ease-in-out;
+}
+
+.camelAnimateSad {
+  position: relative;
+  top: 0;
+  transform-origin: center;
+  animation: camelFallOff 1.2s ease-in forwards;
+}
+
+@keyframes camelFallOff {
+  0% {
+    transform: translateY(-120%) rotate(0deg);
+    opacity: 1;
+  }
+
+  25% {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  50% {
+    transform: translateY(20%) rotate(160deg);
+  }
+
+  75% {
+    transform: translateY(80vh) rotate(190deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(150vh) rotate(200deg);
+    opacity: 0;
+  }
+}
+
+.camelAnimateHappy {
+  animation: happyBounce 0.8s infinite;
+}
+
+.fishAnimateSad {
+  animation: fishBreath 1s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes fishBreath {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.fishAnimateHappy {
+  animation: fishSwim 6s ease-in-out;
+  left: 60px;
+  top: 0;
+}
+
+@keyframes fishSwim {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-300px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.penguinAnimateSad {
+  animation: penguinFaint 1s ease-in-out forwards;
+  transform-origin: center;
+}
+
+@keyframes penguinFaint {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.penguinAnimateHappy {
+  animation: penguinDance 1s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes penguinDance {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

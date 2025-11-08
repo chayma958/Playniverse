@@ -1,0 +1,62 @@
+.basketWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.basketImg {
+  max-height: 150px;
+  min-height: 50px;
+  width: auto;
+  z-index: 2;
+}
+
+.redX {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12vw;
+  color: red;
+  animation: fade 1s ease;
+  z-index: 5;
+}
+
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes basketPop {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.25);
+  }
+
+  60% {
+    transform: scale(0.9);
+  }
+
+  80% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.basket-pop {
+  animation: basketPop 0.5s ease-out;
+}

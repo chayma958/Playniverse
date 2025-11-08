@@ -1,0 +1,242 @@
+.characterArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+}
+
+.characterWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: 10%
+}
+
+.speechBubble {
+  position: relative;
+  right: 25%;
+}
+
+.babySpeechBubble {
+  position: relative;
+  top: 35%;
+}
+
+.sisterSpeechBubble {
+  position: relative;
+  top: 13%;
+}
+
+.grandmaSpeechBubble {
+  position: relative;
+  top: 10%;
+}
+
+.dad {
+  max-height: 450px;
+  min-height: 300px;
+  width: auto;
+  min-width: 300px;
+  position: relative;
+  top: -15%;
+  object-fit: fill;
+
+  @media (max-width: 480px) {
+    top: -10%;
+  }
+
+  @media (max-width: 360px) {
+    top: -10%;
+  }
+}
+
+.dadSpeechBubble {
+  position: relative;
+  top: 2%;
+  right: 30%;
+
+  @media (max-width: 480px) {
+    top: 7%;
+    right: 25%;
+  }
+}
+
+.mom {
+  max-height: 450px;
+  min-height: 300px;
+  width: auto;
+  min-width: 300px;
+  position: relative;
+  top: -15%;
+  object-fit: fill;
+
+  @media (max-width: 480px) {
+    top: -5%;
+  }
+
+  @media (max-width: 360px) {
+    top: 10%;
+  }
+}
+
+.momSpeechBubble {
+  position: relative;
+  top: 2%;
+  right: 30%;
+
+  @media (max-width: 480px) {
+    top: 15%;
+    right: 25%;
+  }
+
+  @media (max-width: 360px) {
+    top: 30%;
+  }
+}
+
+.sister {
+  max-height: 450px;
+  min-height: 300px;
+  width: auto;
+  min-width: 300px;
+  position: relative;
+  top: -15%;
+  object-fit: fill;
+
+  @media (max-width: 480px) {
+    top: 0%;
+  }
+
+  @media (max-width: 360px) {
+    top: 15%;
+  }
+}
+
+.sisterSpeechBubble {
+  position: relative;
+  top: 10%;
+  right: 30%;
+
+  @media (max-width: 480px) {
+    top: 25%;
+    right: 20%;
+  }
+
+  @media (max-width: 360px) {
+    top: 40%;
+  }
+}
+
+.baby {
+  max-height: 300px;
+  min-height: 200px;
+  width: auto;
+  min-width: 200px;
+  position: relative;
+  top: 5%;
+  object-fit: fill;
+
+  @media (max-width: 480px) {
+    top: 0%;
+  }
+
+  @media (max-width: 360px) {
+    top: 0%;
+  }
+}
+
+.babySpeechBubble {
+  position: relative;
+  top: 30%;
+  right: 55%;
+
+  @media (max-width: 480px) {
+    right: 35%;
+  }
+
+  @media (max-width: 360px) {
+    right: 40%;
+  }
+}
+
+.grandma {
+  max-height: 350px;
+  min-height: 200px;
+  width: auto;
+  min-width: 250px;
+  position: relative;
+  top: 0%;
+  object-fit: fill;
+
+  @media (max-width: 480px) {
+    top: -10%;
+  }
+
+  @media (max-width: 360px) {
+    top: 0%;
+  }
+}
+
+.grandmaSpeechBubble {
+  position: relative;
+  top: 25%;
+  right: 45%;
+
+  @media (max-width: 480px) {
+    top: 15%;
+    right: 30%;
+  }
+
+  @media (max-width: 360px) {
+    top: 25%;
+    right: 35%;
+  }
+}
+
+.grandpa {
+  max-height: 400px;
+  min-height: 250px;
+  width: auto;
+  min-width: 300px;
+  position: relative;
+  top: -10%;
+  object-fit: fill;
+
+  @media (max-width: 360px) {
+    top: -10%;
+  }
+
+}
+
+.grandpaSpeechBubble {
+  position: relative;
+  top: 9%;
+  right: 40%;
+
+  @media (max-width: 480px) {
+    right: 30%;
+  }
+
+  @media (max-width: 360px) {
+    top: 5%;
+    right: 25%;
+  }
+}
+
+.grandpaSpeechBubble,
+.babySpeechBubble,
+.dadSpeechBubble,
+.grandmaSpeechBubble,
+.momSpeechBubble,
+.sisterSpeechBubble {
+  min-width: 180px;
+  font-size: 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+    max-width: 180px;
+    min-width: auto;
+  }
+}

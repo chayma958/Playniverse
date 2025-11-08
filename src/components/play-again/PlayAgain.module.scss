@@ -1,0 +1,47 @@
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: rgba(141, 212, 100);
+  border: 20px solid rgb(115, 210, 60);
+  border-radius: 25px;
+  padding: 40px 60px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 480px) {
+    padding: 30px 20px;
+    font-size: 1.2rem;
+  }
+}
+
+.playButton {
+  background: linear-gradient(145deg, #ffb347, #ffcc33);
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 15px;
+  padding: 14px 32px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #d49a00, 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 0 #d49a00, 0 12px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 0 #d49a00;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 12px 24px;
+  }
+}

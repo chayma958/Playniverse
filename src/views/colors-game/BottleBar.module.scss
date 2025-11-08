@@ -1,0 +1,46 @@
+.bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  width: 50%;
+  position: absolute;
+  bottom: 20px;
+  z-index: 20;
+
+  @media (max-width: 768px) {
+    width: 70%;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%;
+    padding: 5px;
+  }
+}
+
+.bottleContainer {
+  width: 100px;
+  height: auto;
+}
+
+.bottle {
+  width: 100px;
+  height: auto;
+  cursor: grab;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.draggingPreview {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 100px;
+  height: auto;
+  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.4));
+  transition: transform 0.1s ease;
+}

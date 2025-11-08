@@ -1,0 +1,48 @@
+.item {
+  position: absolute;
+  bottom: 60%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: auto;
+  max-height: 20vh;
+  width: auto;
+  cursor: pointer;
+  z-index: 3;
+  transition: transform 0.6s ease-in-out;
+  will-change: transform;
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    max-height: 14vh;
+  }
+}
+
+
+@keyframes popUp {
+  0% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes reset {
+  0% {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}

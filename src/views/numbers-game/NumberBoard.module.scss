@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign {
+  background: linear-gradient(90deg, #e39fc5, #ff79c6);
+  color: #fff;
+  font-size: clamp(0.6rem, 2vw, 1.4rem);
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  letter-spacing: 0.5px;
+  z-index: 2;
+  position: relative;
+  top: 35px;
+  width: 30vw;
+
+  @media (max-width: 1200px) {
+    width: 40vw;
+    padding: 0.6rem 1.5rem;
+    border-radius: 15px;
+    top: 5.5%
+  }
+
+  @media (max-width: 600px) {
+    top: 5%;
+  }
+
+  @media (max-width: 460px) {
+    width: fit-content;
+  }
+}
+
+
+.board {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.7rem;
+  padding-top: 0;
+  background:
+    linear-gradient(#fffbe6, #fffbe6) padding-box,
+    linear-gradient(90deg, #e39fc5, #ff79c6) border-box;
+  border: 10px solid transparent;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 40vw;
+  max-width: 600px;
+  z-index: 1;
+
+  img {
+    width: 16rem;
+    height: 16rem;
+    object-fit: contain;
+  }
+
+  @media (max-width: 1200px) {
+    width: 80vw;
+  }
+}
