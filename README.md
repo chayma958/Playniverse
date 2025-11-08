@@ -5,6 +5,13 @@ It includes **engaging mini-games** all designed to teach and entertain in a col
 
 ---
 
+## 🌍 Live Demo
+
+You can try **Playniverse** online here:  
+🔗 [https://playniverse.vercel.app](https://playniverse.vercel.app)
+
+---
+
 ## 🧩 Features
 
 - 🎮 **5 Educational Mini-Games**
