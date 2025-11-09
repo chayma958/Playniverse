@@ -52,7 +52,7 @@ export const SoundProvider = ({ children }) => {
         toggleSound,
         playPop,
         playPopImmediate,
-        playSound, // expose generic function for flexibility
+        playSound, 
       }}
     >
       {children}
