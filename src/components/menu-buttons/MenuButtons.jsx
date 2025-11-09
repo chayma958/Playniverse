@@ -10,12 +10,13 @@ import soundIcon from "assets/icons/sound_on.png";
 import muteSoundIcon from "assets/icons/sound_off.png";
 
 import bgMusicFile from "assets/sounds/music.mp3";
+import popSoundFile from "assets/sounds/pop.wav";
 
 export default function MenuButtons() {
   const navigate = useNavigate();
   const [isMusicMuted, setIsMusicMuted] = useState(true);
   const musicRef = useRef(new Audio(bgMusicFile));
-  const { soundEnabled, toggleSound, playPop, playPopImmediate } = useSound();
+  const { soundEnabled, toggleSound, playPop } = useSound();
 
   useEffect(() => {
     const music = musicRef.current;
@@ -37,7 +38,8 @@ export default function MenuButtons() {
     const newState = !soundEnabled;
     toggleSound();
     if (newState) {
-      playPopImmediate();
+      const audio = new Audio(popSoundFile);
+      audio.play().catch(() => {});
     }
   };
 

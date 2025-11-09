@@ -36,7 +36,6 @@ export const SoundProvider = ({ children }) => {
   };
 
   const playPop = () => playSound(popSoundFile);
-  const playPopImmediate = () => playSound(popSoundFile);
 
   useEffect(() => {
     return () => {
@@ -51,7 +50,6 @@ export const SoundProvider = ({ children }) => {
         soundEnabled,
         toggleSound,
         playPop,
-        playPopImmediate,
         playSound, 
       }}
     >
