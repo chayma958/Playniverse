@@ -1,11 +1,15 @@
 import { useEffect, useState, useRef } from "react";
+import { useSound } from "context/SoundContext";
 import styles from "./Basket.module.scss";
+
 import correctSrc from "assets/sounds/correct.mp3";
 import wrongSrc from "assets/sounds/wrong.mp3";
+
 export default function Basket({ id, label, img, showX, pop }) {
   const [isPopping, setIsPopping] = useState(false);
   const correctSound = useRef(null);
   const wrongSound = useRef(null);
+  const { soundEnabled } = useSound(); 
 
   useEffect(() => {
     correctSound.current = new Audio(correctSrc);
@@ -15,25 +19,43 @@ export default function Basket({ id, label, img, showX, pop }) {
   }, []);
 
   useEffect(() => {
+    if (!soundEnabled) {
+      [correctSound, wrongSound].forEach((ref) => {
+        if (ref.current) {
+          ref.current.pause();
+          ref.current.currentTime = 0;
+        }
+      });
+    }
+  }, [soundEnabled]);
+
+  useEffect(() => {
     if (pop) {
-      correctSound.current.currentTime = 0;
-      correctSound.current.play().catch((e) => console.warn(e));
+      if (soundEnabled && correctSound.current) {
+        correctSound.current.currentTime = 0;
+        correctSound.current.play().catch((e) => console.warn(e));
+      }
+
       setIsPopping(false);
       const timer = setTimeout(() => setIsPopping(true), 10);
       const clearTimer = setTimeout(() => setIsPopping(false), 510);
+
       return () => {
         clearTimeout(timer);
         clearTimeout(clearTimer);
       };
     }
-  }, [pop]);
+  }, [pop, soundEnabled]);
 
   useEffect(() => {
     if (showX) {
-      wrongSound.current.currentTime = 0;
-      wrongSound.current.play().catch((e) => console.warn(e));
+      if (soundEnabled && wrongSound.current) {
+        wrongSound.current.currentTime = 0;
+        wrongSound.current.play().catch((e) => console.warn(e));
+      }
     }
-  }, [showX]);
+  }, [showX, soundEnabled]);
+
   return (
     <div
       className={`${styles.basketWrapper} ${

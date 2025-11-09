@@ -6,6 +6,8 @@ import {
   useCallback,
 } from "react";
 
+import { useSound } from "context/SoundContext";
+
 const VoiceContext = createContext();
 
 const hasSpeechSynthesis = () =>
@@ -14,8 +16,27 @@ const hasSpeechSynthesis = () =>
   "SpeechSynthesisUtterance" in window;
 
 export const VoiceProvider = ({ children }) => {
+  const { soundEnabled } = useSound();
   const [voices, setVoices] = useState([]);
-  const [muted, setMuted] = useState(false);
+
+  const muted = !soundEnabled;
+
+  useEffect(() => {
+  if (!hasSpeechSynthesis()) return;
+
+  const synth = window.speechSynthesis;
+
+  if (muted) {
+    if (synth.speaking && !synth.paused) synth.pause();
+    const timeout = setTimeout(() => {
+      if (muted) synth.cancel();
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  } else if (synth.paused) {
+    synth.resume();
+  }
+}, [muted]);
 
   useEffect(() => {
     if (!hasSpeechSynthesis()) return;
@@ -96,7 +117,6 @@ export const VoiceProvider = ({ children }) => {
     (text, character = "woman") => {
       if (!hasSpeechSynthesis()) return;
       if (!text || muted) return;
-
       window.speechSynthesis.cancel();
 
       const utterance = new SpeechSynthesisUtterance(String(text));
@@ -164,7 +184,6 @@ export const VoiceProvider = ({ children }) => {
         speak,
         stop,
         muted,
-        setMuted,
       }}
     >
       {children}

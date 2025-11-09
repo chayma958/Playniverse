@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import styles from "./BottleBar.module.scss";
 import red from "assets/colors-game/red.png";
 import yellow from "assets/colors-game/yellow.png";

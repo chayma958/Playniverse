@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useSound } from "context/SoundContext";
 
 import Instruction from "components/instruction/Instruction";
@@ -41,7 +41,6 @@ import camelSound from "assets/sounds/camel.mp3";
 import birdSound from "assets/sounds/bird.mp3";
 import penguinSound from "assets/sounds/penguin.mp3";
 import fishSound from "assets/sounds/fish.mp3";
-
 import failureSound from "assets/sounds/failure.mp3";
 
 const animals = [
@@ -92,18 +91,8 @@ const animals = [
   },
 ];
 
-const playSound = (audioRef) => {
-  const sound = audioRef.current;
-  sound.currentTime = 0;
-  sound.play();
-  setTimeout(() => {
-    sound.pause();
-    audio.currentTime = 0;
-  }, 2000);
-};
-
 export default function AnimalsGame() {
-  const { playPop } = useSound();
+  const { playPop, soundEnabled } = useSound();
 
   const shuffleArray = (array) => {
     const newArray = [...array];
@@ -113,6 +102,7 @@ export default function AnimalsGame() {
     }
     return newArray;
   };
+
   const [shuffledAnimals, setShuffledAnimals] = useState(() =>
     shuffleArray(animals)
   );
@@ -122,8 +112,8 @@ export default function AnimalsGame() {
   const [gameFinished, setGameFinished] = useState(false);
   const [background, setBackground] = useState("default");
   const [showDoors, setShowDoors] = useState(true);
-  const currentAnimal = shuffledAnimals[currentIndex];
 
+  const currentAnimal = shuffledAnimals[currentIndex];
   const backgroundProp = background === "default" ? [wall, floor] : background;
   const dimensionsProp = background === "default" ? [80, 20] : undefined;
 
@@ -134,6 +124,27 @@ export default function AnimalsGame() {
     penguin: useRef(new Audio(penguinSound)),
     fish: useRef(new Audio(fishSound)),
     failure: useRef(new Audio(failureSound)),
+  };
+
+  useEffect(() => {
+    if (!soundEnabled) {
+      Object.values(soundRefs).forEach((ref) => {
+        const audio = ref.current;
+        audio.pause();
+        audio.currentTime = 0;
+      });
+    }
+  }, [soundEnabled]);
+
+  const playSound = (audioRef) => {
+    if (!soundEnabled) return; 
+    const sound = audioRef.current;
+    sound.currentTime = 0;
+    sound.play().catch(() => {});
+    setTimeout(() => {
+      sound.pause();
+      sound.currentTime = 0;
+    }, 2000);
   };
 
   const getSignImg = (option) => {
@@ -219,7 +230,7 @@ export default function AnimalsGame() {
           <>
             <Instruction text="Help the animals find their home!" />
 
-            <div className="absolute  bottom-[16vh] flex justify-center items-end">
+            <div className="absolute bottom-[16vh] flex justify-center items-end">
               {showDoors && (
                 <Door
                   habitat={currentAnimal.options[0]}

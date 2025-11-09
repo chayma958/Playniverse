@@ -1,4 +1,5 @@
 import { useEffect, useState, forwardRef, useRef } from "react";
+import { useSound } from "context/SoundContext"; 
 import styles from "./Cauldron.module.scss";
 
 import cauldron1 from "assets/colors-game/cauldron1.png";
@@ -28,6 +29,8 @@ const Cauldron = forwardRef(
     const [currentImg, setCurrentImg] = useState(cauldron1);
     const [floatingColor, setFloatingColor] = useState(null);
 
+    const { soundEnabled } = useSound();
+
     const successAudioRef = useRef(new Audio(successSound));
     const wrongAudioRef = useRef(new Audio(wrongSound));
 
@@ -39,16 +42,30 @@ const Cauldron = forwardRef(
     }, []);
 
     useEffect(() => {
+      const success = successAudioRef.current;
+      const wrong = wrongAudioRef.current;
+
+      if (!soundEnabled) {
+        success.pause();
+        wrong.pause();
+      }
+    }, [soundEnabled]);
+
+    useEffect(() => {
       if (!resultColor) return;
 
       if (resultColor === "wrong") {
-        wrongAudioRef.current.currentTime = 0;
-        wrongAudioRef.current.play();
+        if (soundEnabled) {
+          wrongAudioRef.current.currentTime = 0;
+          wrongAudioRef.current.play().catch(() => {});
+        }
         setIsExploding(true);
         setTimeout(() => setIsExploding(false), 800);
       } else {
-        successAudioRef.current.currentTime = 0;
-        successAudioRef.current.play();
+        if (soundEnabled) {
+          successAudioRef.current.currentTime = 0;
+          successAudioRef.current.play().catch(() => {});
+        }
         setFloating(true);
         setFloatingColor(resultColor);
         setTimeout(() => {
@@ -56,7 +73,7 @@ const Cauldron = forwardRef(
           setFloatingColor(null);
         }, 3000);
       }
-    }, [resultColor]);
+    }, [resultColor, soundEnabled]); 
 
     return (
       <div ref={ref} className={styles.container}>
@@ -102,3 +119,4 @@ const Cauldron = forwardRef(
 );
 
 export default Cauldron;
+
