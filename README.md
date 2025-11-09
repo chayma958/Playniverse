@@ -1,16 +1,63 @@
-# React + Vite
+# 🚀 Playniverse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Playniverse** is an interactive educational platform offering a universe of fun learning experiences for kids.  
+It includes **engaging mini-games** all designed to teach and entertain in a colorful, safe, and playful environment.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌍 Live Demo
 
-## React Compiler
+You can try **Playniverse** online here:  
+🔗 [https://playniverse.vercel.app](https://playniverse.vercel.app)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧩 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎮 **5 Educational Mini-Games**
+  - 🎨 **Colors Game:** Helps kids learn colors through interactive visual challenges.  
+  - 🔢 **Numbers Game:** Introduces counting and number recognition in a fun way.  
+  - 👨‍👩‍👧 **Family Game:** Teaches family member names while improving logical association skills.  
+  - 🐾 **Animal Habitats:** Teaches children about animals and their natural homes.  
+  - 🍎 **Fruits & Vegetables:** Teaches children to sort fruits and vegetables, strengthening their ability to categorize objects.
+    
+- 🧠 **Interactive Learning**
+  Play-based education that promotes curiosity, memory, and problem-solving.
+
+- 🎨 **Kid-Friendly Design**
+  Cheerful colors, rounded shapes, and fun visuals suitable for children.
+
+- 🔊 **Sound & Music**
+  Fun sound effects and positive audio feedback for better engagement.
+
+- 💻 **Responsive Design**
+  Works seamlessly across desktop and tablet devices.
+
+---
+
+## 🚀 Tech Stack
+
+- **Framework:** [Vite](https://vitejs.dev/) + React.js  
+- **Language:** JavaScript / JSX  
+- **Styling:** SCSS Modules + Tailwind CSS  
+- **Deployment:** [Vercel](https://vercel.com/)  
+- **Version Control:** Git + GitHub  
+
+---
+
+## ⚙️ Installation & Setup
+
+To run **Playniverse** locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/playniverse.git
+
+# Enter the project directory
+cd playniverse
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
